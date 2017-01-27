@@ -1,7 +1,11 @@
 const Node = require('./node');
 
 class LinkedList {
-    constructor() {}
+    constructor() {
+        this._head = null;
+        this._tail = null;
+        this.length = 0;
+    }
 
     append(data) {}
 
