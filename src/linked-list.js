@@ -30,7 +30,17 @@ class LinkedList {
         return this._tail.data;
     }
 
-    at(index) {}
+    at(index) {
+        if (index >= 0 && index < this.length) {
+            let current = this._head;
+            
+            for (let i = 0; i != index; i++) {
+                current = current.next;
+            }
+
+            return current.data;
+        }
+    }
 
     insertAt(index, data) {}
 
