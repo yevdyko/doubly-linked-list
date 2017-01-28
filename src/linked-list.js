@@ -23,10 +23,18 @@ class LinkedList {
     }
 
     head() {
+        if (this._head === null) {
+            return null;
+        }
+
         return this._head.data;
     }
 
     tail() {
+        if (this._tail === null) {
+            return null;
+        }
+
         return this._tail.data;
     }
 
@@ -48,7 +56,11 @@ class LinkedList {
         return this.length === 0;
     }
 
-    clear() {}
+    clear() {
+        this._head = this._tail = null;
+        this.length = 0;
+        return this;
+    }
 
     deleteAt(index) {}
 
