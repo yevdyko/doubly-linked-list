@@ -32,13 +32,13 @@ class LinkedList {
 
     at(index) {
         if (index >= 0 && index < this.length) {
-            let current = this._head;
+            let currentNode = this._head;
             
             for (let i = 0; i != index; i++) {
-                current = current.next;
+                currentNode = currentNode.next;
             }
 
-            return current.data;
+            return currentNode.data;
         }
     }
 
@@ -54,7 +54,17 @@ class LinkedList {
 
     reverse() {}
 
-    indexOf(data) {}
+    indexOf(data) {
+        let currentNode = this._head;
+
+        for (let i = 0; i < this.length; i++) {
+            if (currentNode.data === data) {
+                return i;
+            }
+            
+            currentNode = currentNode.next;
+        }
+    }
 }
 
 module.exports = LinkedList;
