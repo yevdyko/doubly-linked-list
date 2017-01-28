@@ -61,9 +61,11 @@ class LinkedList {
             if (currentNode.data === data) {
                 return i;
             }
-            
+
             currentNode = currentNode.next;
         }
+
+        return -1;
     }
 }
 
