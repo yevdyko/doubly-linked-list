@@ -62,7 +62,35 @@ class LinkedList {
         return this;
     }
 
-    deleteAt(index) {}
+    deleteAt(index) {
+        if (index >= 0 && index < this.length) {
+            let currentNode = this._head;
+
+            if (index === 0) {
+                this._head = currentNode.next;
+
+                if (!this._head) {
+                    this._tail = null;
+                } else {
+                    this._head.prev = null;
+                }
+                
+            } else if (index === this.length - 1) {
+                currentNode = this._tail;
+                this._tail = currentNode.prev;
+                this._tail.next = null;
+            } else {
+                for (let i = 0; i != index; i++) {
+                    currentNode = currentNode.next;
+                }
+
+                currentNode.prev.next = currentNode.next;
+                currentNode.next.prev = currentNode.prev;
+            }
+
+            this.length--;
+        }
+    }
 
     reverse() {}
 
