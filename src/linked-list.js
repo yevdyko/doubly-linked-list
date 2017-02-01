@@ -114,7 +114,21 @@ class LinkedList {
         }
     }
 
-    reverse() {}
+    reverse() {
+        let currentNode = this._head,
+            tempNode;
+
+        while (currentNode !== null) {
+            tempNode = currentNode.next;
+            currentNode.next = currentNode.prev;
+            currentNode.prev = tempNode;
+            currentNode = currentNode.prev;
+        }
+
+        tempNode = this._head;
+        this._head = this._tail;
+        this._tail = tempNode;
+    }
 
     indexOf(data) {
         let currentNode = this._head;
