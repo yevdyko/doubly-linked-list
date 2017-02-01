@@ -20,6 +20,8 @@ class LinkedList {
         }
         
         this.length++;
+
+        return this;
     }
 
     head() {
@@ -42,7 +44,7 @@ class LinkedList {
         if (index >= 0 && index < this.length) {
             let currentNode = this._head;
                 
-            for (let i = 0; i != index; i++) {
+            for (let i = 0; i !== index; i++) {
                 currentNode = currentNode.next;
             }
 
@@ -71,6 +73,8 @@ class LinkedList {
             }
 
             this.length++; 
+        
+            return this;
         }
     }
 
@@ -81,6 +85,7 @@ class LinkedList {
     clear() {
         this._head = this._tail = null;
         this.length = 0;
+        
         return this;
     }
 
@@ -111,6 +116,8 @@ class LinkedList {
             }
 
             this.length--;
+            
+            return this;
         }
     }
 
@@ -128,6 +135,8 @@ class LinkedList {
         tempNode = this._head;
         this._head = this._tail;
         this._tail = tempNode;
+
+        return this;
     }
 
     indexOf(data) {
