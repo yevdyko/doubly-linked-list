@@ -41,7 +41,7 @@ class LinkedList {
     at(index) {
         if (index >= 0 && index < this.length) {
             let currentNode = this._head;
-            
+                
             for (let i = 0; i != index; i++) {
                 currentNode = currentNode.next;
             }
@@ -50,7 +50,29 @@ class LinkedList {
         }
     }
 
-    insertAt(index, data) {}
+    insertAt(index, data) {
+        if (index >= 0 && index < this.length) {
+            let currentNode = this._head,
+                node = new Node(data);
+
+            if (index === 0) {
+                node.next = currentNode;
+                currentNode.prev = node;
+                this._head = node;
+            } else {
+                for (let i = 0; i !== index; i++) {
+                    currentNode = currentNode.next;
+                }
+
+                currentNode.prev.next = node;
+                node.prev = currentNode.prev;
+                node.next = currentNode;
+                currentNode.prev = node;
+            }
+
+            this.length++; 
+        }
+    }
 
     isEmpty() {
         return this.length === 0;
@@ -74,7 +96,7 @@ class LinkedList {
                 } else {
                     this._head.prev = null;
                 }
-                
+
             } else if (index === this.length - 1) {
                 currentNode = this._tail;
                 this._tail = currentNode.prev;
